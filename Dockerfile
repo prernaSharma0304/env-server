@@ -4,11 +4,10 @@ WORKDIR /app
 
 COPY . /app
 
-# Compile your Java file
+# Compile the Java server
 RUN javac EnvServer.java
 
-# Expose the port your Java server uses
-EXPOSE 8080
+# Render uses PORT from environment
+# So we use it dynamically
+CMD ["sh", "-c", "java EnvServer"]
 
-# Start the server
-CMD ["java", "EnvServer"]
