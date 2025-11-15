@@ -9,7 +9,7 @@ let charts = {};
 async function fetchData(){
   cardsDiv.innerHTML = 'Loading...';
   try{
-    const res = await fetch('http://localhost:3000/data');
+    const res = await fetch('https://env-server-61in.onrender.com/data');
     const data = await res.json();
     cardsDiv.innerHTML = '';
 
@@ -73,3 +73,4 @@ function updateCharts(data){
 refreshBtn.addEventListener('click', fetchData);
 setInterval(fetchData, 300000); // auto-refresh every 5 min
 fetchData();
+
