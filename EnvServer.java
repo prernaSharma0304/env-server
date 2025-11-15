@@ -11,7 +11,8 @@ import java.util.Random;
 
 public class EnvServer {
     public static void main(String[] args) throws IOException {
-        HttpServer server = HttpServer.create(new InetSocketAddress(3000), 0);
+        int port = Integer.parseInt(System.getenv().getOrDefault("PORT", "10000"));
+HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
 
         // Serve frontend files
         server.createContext("/", new FileHandler());
@@ -105,3 +106,4 @@ public class EnvServer {
         }
     }
 }
+
